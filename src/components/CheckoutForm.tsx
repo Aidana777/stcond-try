@@ -38,7 +38,7 @@ export function CheckoutForm({
 
   if (lastOrder) {
     return (
-      <div className="p-5 sm:p-6 rounded-xl border border-[#15803D]/30 bg-[#15803D]/5 space-y-4">
+      <div className="p-5 sm:p-6 rounded-2xl border border-[#15803D]/30 bg-[#F0FDF4] space-y-4">
         <div className="flex items-start gap-3">
           <CheckCircle2
             className="w-6 h-6 text-[#15803D] shrink-0 mt-0.5"
@@ -91,7 +91,7 @@ export function CheckoutForm({
         <button
           type="button"
           onClick={onResetConfirmation}
-          className="w-full min-h-[44px] px-4 rounded-lg border border-[#E5E5E2] bg-white hover:bg-[#F2F2F0] text-sm font-semibold text-[#18181B] transition-colors cursor-pointer"
+          className="w-full min-h-[44px] px-4 rounded-xl border border-[#E7E5E0] bg-white hover:bg-[#FAF9F6] text-sm font-semibold text-[#18181B] transition-colors cursor-pointer"
         >
           Оформить новый заказ
         </button>
@@ -133,13 +133,13 @@ export function CheckoutForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       {/* Delivery vs Pickup Switch */}
-      <div className="grid grid-cols-2 gap-1.5 p-1 rounded-lg bg-[#F2F2F0]">
+      <div className="grid grid-cols-2 gap-1.5 p-1 rounded-xl bg-[#F0EFEA]">
         <button
           type="button"
           onClick={() => setDeliveryMethod('delivery')}
-          className={`min-h-[44px] px-3 rounded-md text-sm font-semibold transition-colors cursor-pointer ${
+          className={`min-h-[44px] px-3 rounded-lg text-sm font-semibold transition-colors cursor-pointer ${
             deliveryMethod === 'delivery'
-              ? 'bg-white text-[#18181B] shadow-xs'
+              ? 'bg-[#FFD147] text-[#18181B] shadow-xs'
               : 'text-[#52525B] hover:text-[#18181B]'
           }`}
         >
@@ -148,9 +148,9 @@ export function CheckoutForm({
         <button
           type="button"
           onClick={() => setDeliveryMethod('pickup')}
-          className={`min-h-[44px] px-3 rounded-md text-sm font-semibold transition-colors cursor-pointer ${
+          className={`min-h-[44px] px-3 rounded-lg text-sm font-semibold transition-colors cursor-pointer ${
             deliveryMethod === 'pickup'
-              ? 'bg-white text-[#18181B] shadow-xs'
+              ? 'bg-[#FFD147] text-[#18181B] shadow-xs'
               : 'text-[#52525B] hover:text-[#18181B]'
           }`}
         >
@@ -159,13 +159,13 @@ export function CheckoutForm({
       </div>
 
       {items.length === 0 && (
-        <div className="p-3.5 rounded-lg bg-[#F8F8F7] border border-[#E5E5E2] text-sm text-[#52525B] flex flex-wrap items-center justify-between gap-2">
+        <div className="p-3.5 rounded-xl bg-[#FFF9E6] border border-[#FDE68A] text-sm text-[#18181B] flex flex-wrap items-center justify-between gap-2">
           <span>Корзина пока пуста — выберите блюда из меню.</span>
           {onGoToMenu && (
             <button
               type="button"
               onClick={onGoToMenu}
-              className="min-h-[44px] px-4 rounded-md bg-white border border-[#E5E5E2] text-xs font-semibold text-[#18181B] hover:bg-[#F2F2F0] cursor-pointer"
+              className="min-h-[44px] px-4 rounded-lg bg-white border border-[#E7E5E0] text-xs font-semibold text-[#18181B] hover:bg-[#FAF9F6] cursor-pointer"
             >
               К меню
             </button>
@@ -174,7 +174,7 @@ export function CheckoutForm({
       )}
 
       {items.length > 0 && (
-        <div className="p-3.5 rounded-lg bg-[#F8F8F7] border border-[#E5E5E2] space-y-2">
+        <div className="p-3.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] space-y-2">
           <div className="text-xs font-semibold uppercase tracking-wider text-[#52525B]">
             Выбранные блюда
           </div>
@@ -185,7 +185,7 @@ export function CheckoutForm({
                   {item.dish.name}{' '}
                   <span className="text-[#52525B] tabular-nums">× {item.quantity}</span>
                 </span>
-                <span className="font-medium text-[#18181B] tabular-nums shrink-0">
+                <span className="font-semibold text-[#18181B] tabular-nums shrink-0">
                   {(getCartItemUnitPrice(item) * item.quantity).toLocaleString('ru-RU')} ₽
                 </span>
               </li>
@@ -209,7 +209,7 @@ export function CheckoutForm({
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
             placeholder="Например, Анна"
-            className="w-full min-h-[44px] px-3.5 rounded-lg border border-[#E5E5E2] bg-white text-sm text-[#18181B] placeholder:text-[#A1A1AA] focus:outline-none focus:border-[#15803D]"
+            className="w-full min-h-[44px] px-3.5 rounded-xl border border-[#E7E5E0] bg-white text-sm text-[#18181B] placeholder:text-[#A1A1AA] focus:outline-none focus:border-[#D62839]"
           />
         </div>
 
@@ -227,7 +227,7 @@ export function CheckoutForm({
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="+7 (___) ___-__-__"
-            className="w-full min-h-[44px] px-3.5 rounded-lg border border-[#E5E5E2] bg-white text-sm text-[#18181B] placeholder:text-[#A1A1AA] focus:outline-none focus:border-[#15803D]"
+            className="w-full min-h-[44px] px-3.5 rounded-xl border border-[#E7E5E0] bg-white text-sm text-[#18181B] placeholder:text-[#A1A1AA] focus:outline-none focus:border-[#D62839]"
           />
         </div>
       </div>
@@ -247,7 +247,7 @@ export function CheckoutForm({
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             placeholder="Улица, дом, подъезд, квартира"
-            className="w-full min-h-[44px] px-3.5 rounded-lg border border-[#E5E5E2] bg-white text-sm text-[#18181B] placeholder:text-[#A1A1AA] focus:outline-none focus:border-[#15803D]"
+            className="w-full min-h-[44px] px-3.5 rounded-xl border border-[#E7E5E0] bg-white text-sm text-[#18181B] placeholder:text-[#A1A1AA] focus:outline-none focus:border-[#D62839]"
           />
         </div>
       )}
@@ -264,7 +264,7 @@ export function CheckoutForm({
             id="checkout-time"
             value={preferredTime}
             onChange={(e) => setPreferredTime(e.target.value)}
-            className="w-full min-h-[44px] px-3 rounded-lg border border-[#E5E5E2] bg-white text-sm text-[#18181B] focus:outline-none focus:border-[#15803D]"
+            className="w-full min-h-[44px] px-3 rounded-xl border border-[#E7E5E0] bg-white text-sm text-[#18181B] focus:outline-none focus:border-[#D62839]"
           >
             <option value="Как можно скорее">Как можно скорее</option>
             <option value="Через 1 час">Через 1 час</option>
@@ -284,7 +284,7 @@ export function CheckoutForm({
             id="checkout-payment"
             value={paymentMethod}
             onChange={(e) => setPaymentMethod(e.target.value as PaymentMethod)}
-            className="w-full min-h-[44px] px-3 rounded-lg border border-[#E5E5E2] bg-white text-sm text-[#18181B] focus:outline-none focus:border-[#15803D]"
+            className="w-full min-h-[44px] px-3 rounded-xl border border-[#E7E5E0] bg-white text-sm text-[#18181B] focus:outline-none focus:border-[#D62839]"
           >
             <option value="card">Картой при получении</option>
             <option value="cash">Наличными при получении</option>
@@ -305,20 +305,20 @@ export function CheckoutForm({
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           placeholder="Пожелания по приготовлению, приборы, код домофона..."
-          className="w-full px-3.5 py-2.5 rounded-lg border border-[#E5E5E2] bg-white text-sm text-[#18181B] placeholder:text-[#A1A1AA] focus:outline-none focus:border-[#15803D] resize-y"
+          className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E0] bg-white text-sm text-[#18181B] placeholder:text-[#A1A1AA] focus:outline-none focus:border-[#D62839] resize-y"
         />
       </div>
 
       {error && (
         <p
           role="alert"
-          className="text-sm font-medium text-[#B91C1C] bg-[#FEE2E2]/60 border border-[#FCA5A5] rounded-lg px-3.5 py-2.5"
+          className="text-sm font-medium text-[#B91C1C] bg-[#FEE2E2]/70 border border-[#FCA5A5] rounded-xl px-3.5 py-2.5"
         >
           {error}
         </p>
       )}
 
-      <div className="pt-2 border-t border-[#E5E5E2] space-y-3">
+      <div className="pt-2 border-t border-[#E7E5E0] space-y-3">
         <div className="flex items-baseline justify-between gap-2">
           <span className="text-sm font-medium text-[#52525B]">Итого за блюда</span>
           <span className="text-xl font-bold text-[#18181B] tabular-nums">
@@ -334,7 +334,7 @@ export function CheckoutForm({
 
         <button
           type="submit"
-          className="w-full min-h-[48px] px-6 rounded-lg bg-[#15803D] hover:bg-[#166534] text-sm sm:text-base font-semibold text-white transition-colors cursor-pointer"
+          className="w-full min-h-[48px] px-6 rounded-xl bg-[#D62839] hover:bg-[#B81D2C] text-sm sm:text-base font-semibold text-white transition-colors cursor-pointer"
         >
           Оформить заказ
         </button>

@@ -49,7 +49,7 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-xs sm:p-4"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/55 backdrop-blur-xs sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="dish-modal-title"
@@ -59,8 +59,7 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
         className="relative w-full max-w-2xl bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[92dvh] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Top Image + Close Button */}
-        <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#F2F2F0] shrink-0">
+        <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#F0EFEA] shrink-0">
           {!imgError ? (
             <img
               src={dish.image}
@@ -71,7 +70,7 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-[#52525B]">
-              <Utensils className="w-10 h-10 text-[#15803D]" aria-hidden="true" />
+              <Utensils className="w-10 h-10 text-[#D62839]" aria-hidden="true" />
             </div>
           )}
 
@@ -79,13 +78,12 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
             type="button"
             onClick={onClose}
             aria-label="Закрыть карточку блюда"
-            className="absolute top-3 right-3 min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-full bg-white/95 text-[#18181B] shadow-md hover:bg-white transition-colors cursor-pointer"
+            className="absolute top-3 right-3 min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-full bg-white/95 text-[#18181B] shadow-md hover:bg-[#FFD147] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
-        {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
           <div>
             <div className="flex flex-wrap items-center gap-2 text-xs text-[#52525B] mb-1.5">
@@ -95,7 +93,7 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
               {dish.tag && (
                 <>
                   <span aria-hidden="true">·</span>
-                  <span className="font-semibold text-[#15803D]">{dish.tag}</span>
+                  <span className="font-semibold text-[#D62839]">{dish.tag}</span>
                 </>
               )}
             </div>
@@ -110,7 +108,7 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
             </p>
           </div>
 
-          <div className="pt-4 border-t border-[#E5E5E2] space-y-3">
+          <div className="pt-4 border-t border-[#E7E5E0] space-y-3">
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-wider text-[#52525B]">
                 Состав
@@ -130,7 +128,7 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
           </div>
 
           {dish.addons && dish.addons.length > 0 && (
-            <div className="pt-4 border-t border-[#E5E5E2]">
+            <div className="pt-4 border-t border-[#E7E5E0]">
               <h3 className="text-sm font-semibold text-[#18181B] mb-2.5">
                 Дополнения к блюду
               </h3>
@@ -143,17 +141,17 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
                       type="button"
                       onClick={() => toggleAddon(addon)}
                       aria-pressed={checked}
-                      className={`w-full min-h-[44px] px-3.5 py-2.5 rounded-lg border text-left flex items-center justify-between gap-3 transition-colors cursor-pointer ${
+                      className={`w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border text-left flex items-center justify-between gap-3 transition-colors cursor-pointer ${
                         checked
-                          ? 'border-[#15803D] bg-[#15803D]/5 text-[#18181B]'
-                          : 'border-[#E5E5E2] hover:bg-[#F8F8F7] text-[#18181B]'
+                          ? 'border-[#D62839] bg-[#FFF1F2]/70 text-[#18181B]'
+                          : 'border-[#E7E5E0] hover:bg-[#FAF9F6] text-[#18181B]'
                       }`}
                     >
                       <span className="flex items-center gap-3 text-sm font-medium min-w-0 flex-1">
                         <span
                           className={`w-5 h-5 rounded flex items-center justify-center border shrink-0 ${
                             checked
-                              ? 'bg-[#15803D] border-[#15803D] text-white'
+                              ? 'bg-[#D62839] border-[#D62839] text-white'
                               : 'border-[#D4D4D8] bg-white'
                           }`}
                         >
@@ -172,14 +170,13 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
           )}
         </div>
 
-        {/* Sticky Modal Footer */}
-        <div className="p-4 sm:px-6 border-t border-[#E5E5E2] bg-white flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
-          <div className="inline-flex items-center justify-between sm:justify-start rounded-lg border border-[#E5E5E2] bg-[#F8F8F7]">
+        <div className="p-4 sm:px-6 border-t border-[#E7E5E0] bg-white flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+          <div className="inline-flex items-center justify-between sm:justify-start rounded-xl border border-[#E7E5E0] bg-[#FAF9F6]">
             <button
               type="button"
               onClick={() => setQuantity((q) => Math.max(1, q - 1))}
               aria-label="Уменьшить количество"
-              className="min-w-[44px] min-h-[48px] inline-flex items-center justify-center text-[#18181B] hover:bg-[#E5E5E2]/60 rounded-l-lg cursor-pointer"
+              className="min-w-[44px] min-h-[48px] inline-flex items-center justify-center text-[#18181B] hover:bg-[#E7E5E0]/60 rounded-l-xl cursor-pointer"
             >
               <Minus className="w-4 h-4" aria-hidden="true" />
             </button>
@@ -190,7 +187,7 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
               type="button"
               onClick={() => setQuantity((q) => q + 1)}
               aria-label="Увеличить количество"
-              className="min-w-[44px] min-h-[48px] inline-flex items-center justify-center text-[#18181B] hover:bg-[#E5E5E2]/60 rounded-r-lg cursor-pointer"
+              className="min-w-[44px] min-h-[48px] inline-flex items-center justify-center text-[#18181B] hover:bg-[#E7E5E0]/60 rounded-r-xl cursor-pointer"
             >
               <Plus className="w-4 h-4" aria-hidden="true" />
             </button>
@@ -199,7 +196,7 @@ export function DishModal({ dish, onClose, onAddToCart }: DishModalProps) {
           <button
             type="button"
             onClick={handleSubmit}
-            className="flex-1 min-h-[48px] px-6 rounded-lg bg-[#15803D] hover:bg-[#166534] text-sm sm:text-base font-semibold text-white transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="flex-1 min-h-[48px] px-6 rounded-xl bg-[#D62839] hover:bg-[#B81D2C] text-sm sm:text-base font-semibold text-white transition-colors flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Добавить в корзину</span>
             <span aria-hidden="true">·</span>
