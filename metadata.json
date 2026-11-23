@@ -1,0 +1,6 @@
+{
+  "name": "Бистро Сезон — Меню и доставка еды",
+  "description": "Современный сайт ресторана и доставки еды с категориями меню, карточками блюд, корзиной и быстрым оформлением заказа.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
